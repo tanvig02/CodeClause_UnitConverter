@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div
+      class="h-screen flex items-center justify-center bg-gradient-to-r from-violet-400 to-fuchsia-500"
+    >
+      <div class="w-80 h-96 shadow-2xl shadow-fuchsia-800/80">
+        <div
+          class="h-[50%] relative rounded-t-lg bg-gradient-to-tl from-blue-200 to-blue-500"
+        >
+          <!-- navbar  -->
+          <div>
+            <ul class="flex justify-around p-1 text-white font-bold text-lg">
+              <li>Unit Converter</li>
+              <!-- <li>March 3, 2023</li> -->
+            </ul>
+          </div>
+          <div class="m-4 flex flex-col space-y-4 items-center align-middle">
+            <!-- upper div -->
+            <select
+              id="main_menu"
+              size="1"
+              class="bg-transparent"
+              onchange="UpdateUnitMenu(this, document.getElementById('unit_menu1')); UpdateUnitMenu(this, document.getElementById('unit_menu2'))"
+            >
+              <option class="bg-transparent" value="Units">Units</option>
+              <option class="bg-transparent" value="length">Lenght</option>
+              <option class="bg-transparent" value="volume">Volume</option>
+              <option class="bg-transparent" value="Time">Time</option>
+            </select>
+
+            <div class="space-x-6 items-center">
+              <input
+                id="input"
+                class="border-b-2 border-cyan-800 bg-transparent w-16 font-semibold text-3xl outline-none"
+                type="number"
+                name="unit_input"
+              />
+
+              <!-- onchange="CalculateUnit1(this, document.getElementById('unit_menu2'))" -->
+              <select name="unit_menu1" id="unit_menu1" class="bg-transparent">
+                <!-- <option id="i-km" value="">kilometre</option>
+                <option id="i-m" value="">metre</option>
+                <option id="i-cm" value="">centimetre</option>
+                <option id="i-mm" value="">millimetre</option>
+                <option id="i-ft" value="">foot</option>
+                <option id="i-in" value="">inch</option> -->
+              </select>
+            </div>
+            <button
+              onclick="ConvertFromTo()"
+              class="bg-indigo-500 absolute -bottom-4 left-28 hover:shadow-lg hover:shadow-indigo-500/80 text-white font-bold py-1 px-2 border-none outline-none rounded-lg"
+            >
+              Convert
+            </button>
+          </div>
+        </div>
+
+        <!-- lower div  -->
+        <div
+          class="h-[50%] flex justify-center space-x-6 items-center rounded-b-lg bg-white"
+        >
+          <input
+            id="output"
+            class="border-b-2 border-pink-600 bg-transparent w-24 font-semibold text-3xl outline-none"
+            type="number"
+            name="unit_output"
+          />
+          <!-- onkeyup="CalculateUnit(this, document.unit_input)" -->
+          <select name="unit_menu2" id="unit_menu2">
+            <!-- onchange="CalculateUnit(this, document.getElementById('unit_menu1'))" -->
+            <!-- <option id="o-km" value="">kilometre</option>
+            <option id="o-m" value="">metre</option>
+            <option id="o-cm" value="">centimetre</option>
+            <option id="o-mm" value="">millimetre</option>
+            <option id="o-ft" value="">foot</option>
+            <option id="o-in" value="">inch</option> -->
+          </select>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
